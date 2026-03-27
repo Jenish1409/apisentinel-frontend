@@ -38,7 +38,15 @@ export default function Register() {
     try {
       await api.post('/auth/register/request-otp', { email, password });
       setStep(2);
-    } catch (err) { setError(err.response?.data?.message || 'Failed to send verification code.');
+    } catch (err) {
+      const res = err.response?.data;
+      if (res?.data && typeof res.data === 'object') {
+        // Backend returns field-specific errors like { password: "...", email: "..." }
+        const messages = Object.values(res.data).join('. ');
+        setError(messages);
+      } else {
+        setError(res?.message || 'Failed to send verification code.');
+      }
     } finally { setLoading(false); }
   };
 
