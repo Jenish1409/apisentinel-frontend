@@ -25,6 +25,15 @@
     @apply bg-gray-950 text-gray-100;
   }
 
+  /* Professional global smooth transitions for interactive elements */
+  button, input, select, textarea, a {
+    @apply transition-all duration-200;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    @apply shadow-sm;
+  }
+
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -86,4 +95,36 @@
 
 .animate-slide-up {
   animation: slide-up 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes pan-matrix {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 0px 28px; }
+}
+
+.btn-shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 50px;
+  height: 200%;
+  background: rgba(255,255,255,0.25);
+  transform: rotate(35deg) translate(-150px, -50px);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.btn-shine-effect:hover::after {
+  transform: rotate(35deg) translate(250px, 50px);
 }

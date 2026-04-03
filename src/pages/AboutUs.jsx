@@ -25,10 +25,20 @@ export default function AboutUs() {
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950 transition-colors duration-200">
       <PublicNavbar />
       
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full relative">
+        {/* Subtle dot matrix background */}
+        <div className="absolute inset-0 z-0 opacity-[0.25] dark:opacity-10 pointer-events-none"
+             style={{ 
+               backgroundImage: 'radial-gradient(circle, rgb(148 163 184 / 0.8) 1px, transparent 1px)', 
+               backgroundSize: '24px 24px',
+               animation: 'pan-matrix 4s linear infinite'
+             }} />
+        <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-plus-lighter" />
+        <div className="absolute top-40 right-10 w-[400px] h-[400px] bg-indigo-300/20 dark:bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-plus-lighter" />
+
         {/* Hero */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-4 py-1.5 rounded-full mb-6 ring-1 ring-blue-100 dark:ring-blue-800">
+        <div className="text-center mb-16 relative z-10">
+          <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-4 py-1.5 rounded-full mb-6 ring-1 ring-blue-100 dark:ring-blue-800 shadow-sm">
             <Activity className="w-3.5 h-3.5" /> Built for developers
           </div>
           <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-5">
@@ -116,7 +126,7 @@ export default function AboutUs() {
               <div className="flex justify-center flex-wrap gap-3">
                 {[
                   { href: 'https://github.com/Jenish1409', icon: Github, label: 'GitHub', cls: 'bg-gray-900 dark:bg-gray-800 text-white hover:bg-gray-800 dark:hover:bg-gray-700' },
-                  { href: 'https://www.linkedin.com/in/jenish-raichura-9b535727b/', icon: Linkedin, label: 'LinkedIn', cls: 'bg-blue-600 text-white hover:bg-blue-500' },
+                  { href: 'https://www.linkedin.com/in/jenish-raichura-9b535727b/', icon: Linkedin, label: 'LinkedIn', cls: 'btn-shine-effect bg-blue-600 text-white hover:bg-blue-500' },
                   { href: 'mailto:jenishraichura58@gmail.com', icon: Mail, label: 'Email Me', cls: 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700' },
                 ].map(({ href, icon: Icon, label, cls }) => (
                   <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer"

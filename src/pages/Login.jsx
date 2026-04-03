@@ -67,15 +67,22 @@ export default function Login() {
       </div>
 
       {/* Right: form panel */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 relative">
-        <div className="absolute top-4 left-4 flex gap-3">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
+        {/* Subtle dot matrix background */}
+        <div className="absolute inset-0 z-0 opacity-[0.15] dark:opacity-10 pointer-events-none"
+             style={{ 
+               backgroundImage: 'radial-gradient(circle, rgb(148 163 184 / 0.8) 1px, transparent 1px)', 
+               backgroundSize: '24px 24px',
+               animation: 'pan-matrix 4s linear infinite'
+             }} />
+        <div className="absolute top-4 left-4 z-10">
           <Link to="/" className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors bg-white dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm">
             <ArrowLeft className="w-3.5 h-3.5" /> Back
           </Link>
         </div>
-        <div className="absolute top-4 right-4"><ThemeToggle /></div>
+        <div className="absolute top-4 right-4 z-10"><ThemeToggle /></div>
 
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm relative z-10 backdrop-blur-sm bg-white/40 dark:bg-slate-900/40 p-8 sm:p-10 rounded-3xl border border-white/50 dark:border-slate-800/50 shadow-2xl shadow-blue-900/5">
           {/* Mobile logo */}
           <div className="flex lg:hidden justify-center mb-8">
             <div className="flex items-center gap-3">
@@ -108,7 +115,7 @@ export default function Login() {
             </div>
 
             <button type="submit" disabled={loading}
-              className="w-full flex justify-center items-center gap-2 rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white hover:bg-blue-500 disabled:opacity-60 transition-all shadow-lg shadow-blue-600/25 hover:-translate-y-0.5">
+              className="btn-shine-effect w-full flex justify-center items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:bg-blue-400 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5">
               {loading ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <LogIn className="w-4 h-4" />}
               {loading ? 'Signing in…' : 'Sign in'}
             </button>

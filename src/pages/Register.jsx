@@ -97,15 +97,22 @@ export default function Register() {
       </div>
 
       {/* Right: form */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 relative">
-        <div className="absolute top-4 left-4">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 relative overflow-hidden">
+        {/* Subtle dot matrix background */}
+        <div className="absolute inset-0 z-0 opacity-[0.15] dark:opacity-10 pointer-events-none"
+             style={{ 
+               backgroundImage: 'radial-gradient(circle, rgb(148 163 184 / 0.8) 1px, transparent 1px)', 
+               backgroundSize: '24px 24px',
+               animation: 'pan-matrix 4s linear infinite'
+             }} />
+        <div className="absolute top-4 left-4 z-10">
           <Link to="/" className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors bg-white dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm">
             <ArrowLeft className="w-3.5 h-3.5" /> Back
           </Link>
         </div>
-        <div className="absolute top-4 right-4"><ThemeToggle /></div>
+        <div className="absolute top-4 right-4 z-10"><ThemeToggle /></div>
 
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-sm relative z-10 backdrop-blur-sm bg-white/40 dark:bg-slate-900/40 p-8 sm:p-10 rounded-3xl border border-white/50 dark:border-slate-800/50 shadow-2xl shadow-blue-900/5">
           {/* Mobile logo */}
           <div className="flex lg:hidden justify-center mb-8">
             <div className="flex items-center gap-3">
@@ -130,9 +137,19 @@ export default function Register() {
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               {step === 1 ? 'Create your account' : 'Check your email'}
             </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              {step === 1 ? 'Start monitoring your APIs in minutes' : `We sent a 6-digit code to ${email}`}
-            </p>
+            <div className="mt-1 space-y-1">
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {step === 1 ? 'Start monitoring your APIs in minutes' : `We sent a 6-digit code to ${email}`}
+              </p>
+              {step === 2 && (
+                <p className="text-xs text-amber-600 dark:text-amber-500 font-medium flex items-center gap-1.5 mt-2 bg-amber-50 dark:bg-amber-900/10 p-2 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  Don't see it? Please check your spam or junk folder.
+                </p>
+              )}
+            </div>
           </div>
 
           {error && <div className="mb-4 px-4 py-3 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 text-red-700 dark:text-red-400 text-sm font-medium">{error}</div>}
@@ -158,7 +175,7 @@ export default function Register() {
                 </button>
               </div>
               <button type="submit" disabled={loading}
-                className="w-full flex justify-center items-center gap-2 rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white hover:bg-blue-500 disabled:opacity-60 transition-all shadow-lg shadow-blue-600/25 hover:-translate-y-0.5">
+                className="btn-shine-effect w-full flex justify-center items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:bg-blue-400 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5">
                 {loading ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Mail className="w-4 h-4" />}
                 {loading ? 'Sending code…' : 'Send Verification Code'}
               </button>
@@ -199,7 +216,7 @@ export default function Register() {
               </div>
 
               <button type="submit" disabled={loading || countdown === 0}
-                className="w-full flex justify-center items-center gap-2 rounded-xl bg-blue-600 py-3 text-sm font-semibold text-white hover:bg-blue-500 disabled:opacity-60 transition-all shadow-lg shadow-blue-600/25 hover:-translate-y-0.5">
+                className="btn-shine-effect w-full flex justify-center items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:bg-blue-400 py-3 text-sm font-semibold text-white transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5">
                 {loading ? <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <CheckCircle className="w-4 h-4" />}
                 {loading ? 'Verifying…' : 'Verify & Create Account'}
               </button>

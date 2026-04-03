@@ -133,7 +133,7 @@ export default function Dashboard() {
         {/* Dashboard Summary Metrics */}
         {summary && (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 mb-8">
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col justify-between">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Total APIs</p>
                 <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg"><Server className="w-5 h-5 text-blue-600 dark:text-blue-400" /></div>
@@ -141,7 +141,7 @@ export default function Dashboard() {
               <p className="text-3xl font-bold text-gray-900 dark:text-white mt-4">{summary.totalApis}</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">APIs UP</p>
                 <div className="p-2 bg-green-50 dark:bg-green-900/30 rounded-lg"><CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" /></div>
@@ -149,7 +149,7 @@ export default function Dashboard() {
               <p className="text-3xl font-bold text-gray-900 dark:text-white mt-4">{summary.upApis}</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">APIs DOWN</p>
                 <div className="p-2 bg-red-50 dark:bg-red-900/30 rounded-lg"><XCircle className="w-5 h-5 text-red-600 dark:text-red-400" /></div>
@@ -157,7 +157,7 @@ export default function Dashboard() {
               <p className="text-3xl font-bold text-gray-900 dark:text-white mt-4">{summary.downApis}</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Incidents Today</p>
                 <div className="p-2 bg-orange-50 dark:bg-orange-900/30 rounded-lg"><AlertCircle className="w-5 h-5 text-orange-600 dark:text-orange-400" /></div>
@@ -165,7 +165,7 @@ export default function Dashboard() {
               <p className="text-3xl font-bold text-gray-900 dark:text-white mt-4">{summary.incidentsToday}</p>
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Avg Latency</p>
                 <div className="p-2 bg-purple-50 dark:bg-purple-900/30 rounded-lg"><Clock className="w-5 h-5 text-purple-600 dark:text-purple-400" /></div>
@@ -180,7 +180,7 @@ export default function Dashboard() {
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Monitored Services</h1>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-500 transition-colors shadow-sm"
+            className="btn-shine-effect flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-500 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
             <Plus className="h-4 w-4" /> Add API
           </button>

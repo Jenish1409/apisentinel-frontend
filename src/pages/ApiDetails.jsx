@@ -122,7 +122,7 @@ export default function ApiDetails() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex items-center space-x-4">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex items-center space-x-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="p-3 bg-green-50 dark:bg-green-900/30 rounded-lg">
               <ShieldCheck className="h-8 w-8 text-green-500 dark:text-green-400" />
             </div>
@@ -132,7 +132,7 @@ export default function ApiDetails() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex items-center space-x-4">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex items-center space-x-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="p-3 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
               <Zap className="h-8 w-8 text-blue-500 dark:text-blue-400" />
             </div>
@@ -142,7 +142,7 @@ export default function ApiDetails() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex items-center space-x-4">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex items-center space-x-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="p-3 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
               <Clock className="h-8 w-8 text-purple-500 dark:text-purple-400" />
             </div>
@@ -152,7 +152,7 @@ export default function ApiDetails() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 p-6 flex items-center space-x-4">
+          <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 flex items-center space-x-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <div className="p-3 bg-orange-50 dark:bg-orange-900/30 rounded-lg">
               <List className="h-8 w-8 text-orange-500 dark:text-orange-400" />
             </div>
