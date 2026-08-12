@@ -1,16 +1,58 @@
-# React + Vite
+# ApiSentinel - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend dashboard for **ApiSentinel**, a developer platform to monitor REST APIs and visualize their health, response times, and incident logs.
 
-Currently, two official plugins are available:
+The frontend is a single-page application (SPA) built for high performance and a modern aesthetic, using Recharts for graphing ping history.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## React Compiler
+- **Framework**: React 19
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS v4
+- **Routing**: React Router DOM v7
+- **HTTP Client**: Axios
+- **Data Visualization**: Recharts
+- **Icons**: Lucide React
+- **Date/Time Handling**: Moment & Luxon
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Prerequisites
 
-## Expanding the ESLint configuration
+- **Node.js** (v18 or higher recommended)
+- **npm** or your preferred package manager (yarn, pnpm, etc.)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup & Configuration
+
+1. **Clone the repository** and navigate to the `frontend` directory.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Configure API Endpoint**:
+   Ensure the frontend knows where the backend is hosted. By default, it expects the backend to run on `http://localhost:8080`.
+   If you deploy the backend or run it on a different port, update the API configuration, usually located in a `.env` file (e.g., `VITE_API_URL`) or directly within `src/services/api.js` to point to the backend's URL.
+
+## Running the Application
+
+To start the Vite development server with hot-module replacement (HMR):
+
+```bash
+npm run dev
+```
+
+The application will be accessible at `http://localhost:5173`.
+
+## Building for Production
+
+To create an optimized production build:
+
+```bash
+npm run build
+```
+
+The output will be generated in the `dist/` directory, ready to be served by any static file server (Nginx, Apache, etc.).
+
+## Deployment
+
+This frontend is optimized for seamless deployment on platforms like **Vercel** or **Netlify**. 
+A `vercel.json` file is already included for automatic routing configuration on Vercel. 
+Simply link the repository to your Vercel project, set the root directory to `frontend`, and configure your environment variables for the production backend URL.
